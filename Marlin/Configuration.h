@@ -1259,7 +1259,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, -21 } //@kutluhan - stock probe
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, -12 } //Coarse value for custom Z probe by jazman on Thingiverse
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
