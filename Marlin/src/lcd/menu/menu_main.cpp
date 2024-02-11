@@ -247,7 +247,7 @@ void menu_main() {
       if (card_detected) {
         if (!card_open) {
           #if HAS_SD_DETECT
-            GCODES_ITEM(MSG_CHANGE_MEDIA, F("M21"));        // M21 Change Media
+            //GCODES_ITEM(MSG_CHANGE_MEDIA, F("M21"));        // M21 Change Media
           #else                                             // - or -
             ACTION_ITEM(MSG_RELEASE_MEDIA, []{              // M22 Release Media
               queue.inject(F("M22"));
