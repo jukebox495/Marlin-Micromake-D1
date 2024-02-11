@@ -642,9 +642,9 @@
 
   // Micromake D1 - run 'M106 S255' & 'M303 E0 C10 S200'
   //E3D v6 clone
-  #define DEFAULT_Kp 27.60
-  #define DEFAULT_Ki 1.70
-  #define DEFAULT_Kd 88.30													
+  #define DEFAULT_Kp 28.20
+  #define DEFAULT_Ki 2.40
+  #define DEFAULT_Kd 82.20													
   // Ultimaker
   //#define DEFAULT_Kp 22.2
   //#define DEFAULT_Ki 1.08
