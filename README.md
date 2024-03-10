@@ -23,13 +23,13 @@ After selecting the COM port, click on the Upload button. This process may take 
 ## Recommended hardware upgrades
 
 Before printing with the new firmware, I would advise you to check the following things:
-	- Clean your printer nozzle or replace it with a new one. I would highly recommend not using a cheap nozzle or one of the nozzles that shipped with the printer, since their quality is lacking to
-	  say the least. I replaced the nozzle that shipped with the machine with a genuine E3D brass nozzle (0.4 mm), which can be had for less than 10 $. This increased the quality of my prints noticeably.
-	  While I was at it, I also cleaned the hotend.
-	- The printer has a Z probe to measure the distance from the nozzle to the heatbed (auto-leveling). This is a good idea, but the design of the Z probe is really bad, resulting in inaccurate
-	  measurements. I was never able to get a good first layer and many of my prints failed due to the bad auto-leveling.
-	  I printed a [this Z probe](https://www.thingiverse.com/thing:2258863) by jazman and never looked back - it is a night and day difference compared to the original Z probe.
-	  The only things you need is a bit of filament a M4 bolt + nut, all the other parts are already built into your printer.
+- Clean your printer nozzle or replace it with a new one. I would highly recommend not using a cheap nozzle or one of the nozzles that shipped with the printer, since their quality is lacking to
+  say the least. I replaced the nozzle that shipped with the machine with a genuine E3D brass nozzle (0.4 mm), which can be had for less than 10 $. This increased the quality of my prints noticeably.
+  While I was at it, I also cleaned the hotend.
+- The printer has a Z probe to measure the distance from the nozzle to the heatbed (auto-leveling). This is a good idea, but the design of the Z probe is really bad, resulting in inaccurate
+  measurements. I was never able to get a good first layer and many of my prints failed due to the bad auto-leveling.
+  I printed [this Z probe](https://www.thingiverse.com/thing:2258863) by jazman and never looked back - it is a night and day difference compared to the original Z probe.
+  The only things you need is a bit of filament a M4 bolt + nut, all the other parts are already built into your printer.
 
 ## Auto-leveling procedure
 
