@@ -1,3 +1,76 @@
+# Marlin Fork for Micromake D1
+
+This is a fork of the Marlin 2.1 firmware based on the [fork by donbakala](https://github.com/donbakala/Marlin-Micromake-D1). This version adds some improvements, such as enabling auto-leveling,
+adding the option to load/change/unload filament right from the menu of the printer etc.
+The firmware that shipped with the printer from the factory is outdated and lacks many features compared to current firmwares, so I would highly recommend updating the firmware. For me, this made
+the printer much more usable.
+
+## Instructions for flashing the firmware
+
+The microcontroller of the printer has an internal non-volatile memory (EEPROM) where the configuration of the printer is saved. After updating to the new Marlin 2.1 firmware, the printer
+will promt you to initialize the EEPROM, which clears all the old contents. Therefore, I would recommend to save your current EEPROM settings in case you are not satisfied with the new firmware
+and want to go back.
+One way to do this is to open the original Cura 15.4 that ships with the machine and select Machine -> Firmware configuration while your printer is connected to your PC. Now you can write down
+all the parameters or, like I did it, take some screenshots.
+
+To flash the new Marlin 2.1 firmware onto your Micromake D1, the Arduino IDE is required. See the instructions below ("Building Marlin 2.1") if you are not familiar with the Arduino IDE.
+After installing it, connect your printer to the USB port of your computer and select the COM port in the menu of the Arduino IDE. If no COM port shows up after connecting the printer, you
+probably need to install the [CH340 serial driver](https://www.wch-ic.com/downloads/CH341SER_EXE.html).
+After selecting the COM port, click on the Upload button. This process may take several minutes, after which the printer should reboot and show the Marlin intro screen.
+
+**ATTENTION: I have not tested if the new firmare still works with the ancient Cura 15.04 that is shipped with the printer! If you want to continue this version (which I would not recommend at all, see below), please note that it may not work!**
+
+## Recommended hardware upgrades
+
+Before printing with the new firmware, I would advise you to check the following things:
+	- Clean your printer nozzle or replace it with a new one. I would highly recommend not using a cheap nozzle or one of the nozzles that shipped with the printer, since their quality is lacking to
+	  say the least. I replaced the nozzle that shipped with the machine with a genuine E3D brass nozzle (0.4 mm), which can be had for less than 10 $. This increased the quality of my prints noticeably.
+	  While I was at it, I also cleaned the hotend.
+	- The printer has a Z probe to measure the distance from the nozzle to the heatbed (auto-leveling). This is a good idea, but the design of the Z probe is really bad, resulting in inaccurate
+	  measurements. I was never able to get a good first layer and many of my prints failed due to the bad auto-leveling.
+	  I printed a [this Z probe](https://www.thingiverse.com/thing:2258863) by jazman and never looked back - it is a night and day difference compared to the original Z probe.
+	  The only things you need is a bit of filament a M4 bolt + nut, all the other parts are already built into your printer.
+
+## Auto-leveling procedure
+
+The auto-leveling procedure works a bit different on the new firmware. Here is the procedure:
+
+- Turn on your printer. If you printed the Z probe I recommended above, flap it down so that the limit switch is pointing to the build plate.
+- Press the knob to go to the menu. Select Advanced Settings -> Delta calibration -> Auto calibration. After homing, the printer will start the procdure and
+  measure the bed distance on several points.
+  This can take quite a while (10-30 minutes), so grab a coffee and relax.
+- After the printer is done, go back to Advanced Settings -> Delta calibration and select "Store settings". This stores all the settings to the internal EEPROM.
+  The printer will beep as soon as you hit the button and the settings are saved.
+  **This step is important, otherwise the calibration results will be lost after a reboot/power cycle and the auto-leveling needs to be perfomed again!!!**
+- If you use the Z probe I recommended above, flap it out of the way.
+- Now, go to Menu -> Motion and select "Auto Home". Afterwards, open the "Move Axis" menu and place a small piece of paper on the build plate.
+- Set "Soft Endstops" to "Off" and then select Move Z -> Move 10mm. Move the axis to +10 mm by turning the knob.
+- Go back and select "Move 1mm" or "Move 0.1mm". Move the Z axis further down until it grabs the paper. You should still be able to move the paper underneath the nozzle, but
+  there should be a slight resistance. If you cannot move the paper, move the nozzle back up. If there is no resistance, move the nozzle down until you can feel a resistance.
+- Check which position is shown on the display and write it down somewhere. For my printer with the Z probe I recommended above, I got a value of -14.40 mm.
+- Go to Menu -> Configuration -> Probe Z Offs. Put the value you wrote down in here.
+- Scroll down and select "Store settings". This stores all the settings to the internal EEPROM. The printer will beep as soon as you hit the button and the settings are saved.
+  **This step is important, otherwise the Z offset we just configured will be lost after a reboot/power cycle and it needs to be set again!!!**
+- Press the reset button on the front of your printer and wait for it to reboot.
+- Make sure that the paper is still placed on your buildplate. Go to Menu -> Motion and select "Auto Home". Afterwards, open Move Axis -> Move Z -> Move 10mm and move the axis to 0.0mm
+  (it will not let you move it below 0.0mm, so just turn the know until it shows 0.0mm).
+  Now the nozzle should be in the same position as earlier, where the paper can be moved with some resistance.
+	  
+The calibration is now complete and you can start printing. If you have issues with your first layer, the first step would be to adjust the Probe Z offset a bit. If that is not sufficient,
+you may need to redo the calibration.
+As already mentioned, the stock Z probe gives poor measurement results. I would highly recommend to print the Z probe recommended above to get better results.
+
+## Slicer
+
+The Cura 15.04 that shipped with the Micromake D1 is also extremely outdated (April 2015). Using a modern slicer will give you much more features,
+e.g. different print profiles, more advanced speed settings and completely new capabilities, like ironing or arachane slicing. They will also produce much more
+optimized G-Code which reduces print time and improves print quality.
+
+I have been using PrusaSlicer for a long time now and I can highly recommend to give it a try for your Micromake. If you do not like it, a current version of Cura
+should also work, however, I have not tested it.
+
+
+# Official Marlin README
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
 
 <h1 align="center">Marlin 3D Printer Firmware</h1>
