@@ -66,9 +66,13 @@ The Cura 15.04 that shipped with the Micromake D1 is also extremely outdated (Ap
 e.g. different print profiles, more advanced speed settings and completely new capabilities, like ironing or arachane slicing. They will also produce much more
 optimized G-Code which reduces print time and improves print quality.
 
-I have been using PrusaSlicer for a long time now and I can highly recommend to give it a try for your Micromake. If you do not like it, a current version of Cura
-should also work, however, I have not tested it.
+I have been using PrusaSlicer for a long time now and I can highly recommend to give it a try for your Micromake. I uploaded my printer profile and print settings 
+(see "_PrusaSlicer" folder). To import them to PrusaSlicer, install it first on your PC. After startup, go to Menu -> Help -> Show Configuration Folder (as of V2.8.0).
+Then copy all the files from "_PrusaSlicer -> print" (GitHub) to the "print" folder (Configuration folder) and the printer profile from "_PrusaSlicer -> printer"
+(GitHub) to the "printer" folder (Configuration folder). After a restart of PrusaSlicer, you can select the printer and the corresponding printer profiles on the
+sidebar at the right.
 
+If you do not want to use PrusaSlicer, a current version of Cura (or any other slicer for that matter) should also work, however, I have not tested it.
 
 # Official Marlin README
 <p align="center"><img src="buildroot/share/pixmaps/logo/marlin-outrun-nf-500.png" height="250" alt="MarlinFirmware's logo" /></p>
