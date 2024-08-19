@@ -10,7 +10,7 @@ the printer much more usable.
 The microcontroller of the printer has an internal non-volatile memory (EEPROM) where the configuration of the printer is saved. After updating to the new Marlin 2.1 firmware, the printer
 will promt you to initialize the EEPROM, which clears all the old contents. Therefore, I would recommend to save your current EEPROM settings in case you are not satisfied with the new firmware
 and want to go back.
-One way to do this is to open the original Cura 15.4 that ships with the machine and select Machine -> Firmware configuration while your printer is connected to your PC. Now you can write down
+One way to do this is to open the original Cura 15.4 that shipped with the machine and select Machine -> Firmware configuration while your printer is connected to your PC. Now you can write down
 all the parameters or, like I did it, take some screenshots.
 
 To flash the new Marlin 2.1 firmware onto your Micromake D1, the Arduino IDE is required. See the instructions below ("Building Marlin 2.1") if you are not familiar with the Arduino IDE.
@@ -29,7 +29,7 @@ Before printing with the new firmware, I would advise you to check the following
 - The printer has a Z probe to measure the distance from the nozzle to the heatbed (auto-leveling). This is a good idea, but the design of the Z probe is really bad, resulting in inaccurate
   measurements. I was never able to get a good first layer and many of my prints failed due to the bad auto-leveling.
   I printed [this Z probe](https://www.thingiverse.com/thing:2258863) by jazman and never looked back - it is a night and day difference compared to the original Z probe.
-  The only things you need is a bit of filament a M4 bolt + nut, all the other parts are already built into your printer.
+  The only things you need are a bit of filament and an M4 bolt + nut, all the other parts are already built into your printer.
 
 ## Auto-leveling procedure
 
